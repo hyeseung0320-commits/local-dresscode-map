@@ -1,0 +1,17 @@
+// 우리 동네 데이트 장소 드레스코드 기록 - 데이터 모델
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Place {
+  id           Int      @id @default(autoincrement())
+  name         String   // 장소명
+  neighborhood String   // 동네
+  moods        String   // 분위기 태그 (콤마로 구분해 저장)
+  dresscode    String   // 추천 옷차림
+  createdAt    DateTime @default(now())
+}
