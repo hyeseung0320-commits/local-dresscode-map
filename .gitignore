@@ -37,6 +37,9 @@ yarn-error.log*
 /prisma/*.db
 /prisma/*.db-journal
 
+# 사용자가 업로드한 사진 (로컬 저장)
+/public/uploads
+
 # vercel
 .vercel
 

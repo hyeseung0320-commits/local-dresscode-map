@@ -1,0 +1,10 @@
+-- CreateTable
+CREATE TABLE "Report" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "placeId" INTEGER NOT NULL,
+    "nickname" TEXT NOT NULL,
+    "outfit" TEXT NOT NULL,
+    "season" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT "Report_placeId_fkey" FOREIGN KEY ("placeId") REFERENCES "Place" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+);

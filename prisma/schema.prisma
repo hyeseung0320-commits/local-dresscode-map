@@ -14,4 +14,16 @@ model Place {
   moods        String   // 분위기 태그 (콤마로 구분해 저장)
   dresscode    String   // 추천 옷차림
   createdAt    DateTime @default(now())
+  reports      Report[] // 이 장소에 대한 "이렇게 입었어요" 제보들
+}
+
+model Report {
+  id        Int      @id @default(autoincrement())
+  placeId   Int      // 어떤 장소에 대한 제보인지
+  place     Place    @relation(fields: [placeId], references: [id], onDelete: Cascade)
+  nickname  String   // 작성자 닉네임
+  outfit    String   // 어떻게 입었는지 설명
+  season    String   // 방문 계절 (봄/여름/가을/겨울)
+  photo     String?  // 옷차림 사진 경로 (선택)
+  createdAt DateTime @default(now())
 }
